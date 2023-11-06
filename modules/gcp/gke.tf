@@ -77,7 +77,7 @@ resource "google_container_node_pool" "primary_nodes" {
     preemptible  = var.gcp_gke.preemptible
     machine_type = "e2-medium"
     disk_size_gb = 20
-    service_account = "t-matsuno-terraform-account@${var.gcp_common.project}.iam.gserviceaccount.com"
+    service_account = var.gcp_common.email
     tags            = ["gke-node", "${var.gcp_common.project}-gke"]
     oauth_scopes = [
       "https://www.googleapis.com/auth/logging.write",
