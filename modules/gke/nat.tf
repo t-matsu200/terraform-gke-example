@@ -1,17 +1,17 @@
 # Cloud Router
 resource "google_compute_router" "router" {
-    project = var.gcp_common.project
+    project = var.common.project
 
-    name    = "router-${var.gcp_common.prefix}-${var.gcp_common.env}"
-    region  = var.gcp_common.region
+    name    = "router-${var.common.prefix}-${var.common.env}"
+    region  = var.common.region
     network = google_compute_network.vpc_network.id
 }
 
 # Cloud NAT
 resource "google_compute_router_nat" "nat" {
-    project = var.gcp_common.project
+    project = var.common.project
 
-    name = "nat-${var.gcp_common.prefix}-${var.gcp_common.env}"
+    name = "nat-${var.common.prefix}-${var.common.env}"
     router                 = google_compute_router.router.name
     region                 = google_compute_router.router.region
     nat_ip_allocate_option = "AUTO_ONLY"

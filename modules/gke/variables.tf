@@ -1,9 +1,9 @@
-variable "GCP_CREDENTIALS_PATH" {
-  type        = string
-  description = "Path for GCP credentials using env variables."
-}
+# variable "GC_CREDENTIALS_PATH" {
+#   type        = string
+#   description = "Path for GCP credentials using env variables."
+# }
 
-variable "gcp_common" {
+variable "common" {
     type = object ({
         prefix  = string  # 固有のプレフィクス (任意の文字列)
         env     = string  # 環境名 ( dev、prod など)
@@ -15,7 +15,7 @@ variable "gcp_common" {
     description = "リソース共通の設定値"
 }
 
-variable "gcp_vpc" {
+variable "vpc" {
     type = object ({
         subnet_cidr = string  # サブネットの CIDR 範囲 ( GKE ノード、踏み台ホストが使用する IP 範囲)
         secondary_ip_service_ranges = string # GKE Service が使用する IP 範囲
@@ -24,7 +24,7 @@ variable "gcp_vpc" {
     description = "VPC の設定値"
 }
 
-variable "gcp_gke" {
+variable "gke" {
     type = object ({
         master_cidr  = string  # コントロールプレーンが使用する IP 範囲
         preemptible  = bool    # プリエンプティブル VM インスタンスを利用するか否か
@@ -32,7 +32,7 @@ variable "gcp_gke" {
     description = "GKE の設定値"
 }
 
-variable "gcp_bastion" {
+variable "bastion" {
     type = object ({
         machine_type    = string  # 踏み台 VM のマシンタイプ
         ssh_sourcerange = string  # 踏み台 VM に SSH アクセスできるソース IP 範囲

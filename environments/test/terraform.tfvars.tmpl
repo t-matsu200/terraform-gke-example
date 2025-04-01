@@ -1,4 +1,4 @@
-gcp_common = {
+common = {
     prefix  = "xxxxx"
     env     = "test"
     project = "<Project Name>"
@@ -7,18 +7,18 @@ gcp_common = {
     email   = "xxx@<Project Name>.gserviceaccount.com"
 }
 
-gcp_vpc = {
+vpc = {
     subnet_cidr                 = "172.16.0.0/15"
     secondary_ip_service_ranges = "172.18.0.0/18"
     secondary_ip_pod_ranges     = "172.19.0.0/18"
 }
 
-gcp_gke = {
+gke = {
     master_cidr = "192.168.16.0/28"
     preemptible = true
 }
 
-gcp_bastion = {
+bastion = {
     machine_type    = "e2-small"
     ssh_sourcerange = "35.235.240.0/20"  # IAP の IP 範囲
 }

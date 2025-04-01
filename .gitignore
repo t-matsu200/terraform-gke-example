@@ -37,3 +37,5 @@ credentials
 .env
 setup.sh
 *.drawio
+
+*.json

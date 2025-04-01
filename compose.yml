@@ -1,0 +1,16 @@
+services:
+  terraform:
+    image: hashicorp/terraform:1.11
+    working_dir: /work/modules
+    volumes:
+      - .:/work/modules
+      - tfdata-terraform-gke-example:/tfdata
+    entrypoint: tail
+    command: ["-f", "/dev/null"]
+    environment:
+      - TF_DATA_DIR=/tfdata
+    env_file:
+      - .env
+
+volumes:
+  tfdata-terraform-gke-example:

@@ -1,4 +1,4 @@
-variable "GCP_CREDENTIALS_PATH" {
+variable "GC_CREDENTIALS_PATH" {
   type        = string
   description = "Path for GCP credentials using env variables."
 }
@@ -7,7 +7,7 @@ provider "google" {
   project = "t-matsuno-anthos-example-pj"
   region  = "asia-northeast1"
   zone    = "asia-northeast1-c"
-  credentials = file(var.GCP_CREDENTIALS_PATH)
+  credentials = file(var.GC_CREDENTIALS_PATH)
 }
 
 resource "google_storage_bucket" "terraform-state-store" {

@@ -1,23 +1,14 @@
 provider "google" {
-  credentials = file(var.GCP_CREDENTIALS_PATH)
+  credentials = file(var.GC_CREDENTIALS_PATH)
 
-  project = var.gcp_common.project
-  region  = var.gcp_common.region
-  zone    = var.gcp_common.zone
+  project = var.common.project
+  region  = var.common.region
+  zone    = var.common.zone
 }
 
-provider "google-beta" {
-  credentials = file(var.GCP_CREDENTIALS_PATH)
-  project     = var.gcp_common.project
-  region      = var.gcp_common.region
-  zone        = var.gcp_common.zone
-}
-
-provider "aws" {
-  default_tags {
-    tags = {
-      "CreatedBy" = "terraform"
-      "Name" = "t-matsuno"
-    }
-  }
-}
+# provider "google-beta" {
+#   credentials = file(var.GC_CREDENTIALS_PATH)
+#   project     = var.common.project
+#   region      = var.common.region
+#   zone        = var.common.zone
+# }
