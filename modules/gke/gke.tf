@@ -12,8 +12,12 @@ resource "google_container_cluster" "primary" {
     enable_l4_ilb_subsetting = true
 
     ip_allocation_policy {
-        cluster_secondary_range_name  = "pod-ranges-${var.common.prefix}-${var.common.env}"
-        services_secondary_range_name = "service-ranges-${var.common.prefix}-${var.common.env}"
+      cluster_secondary_range_name  = "pod-ranges-${var.common.prefix}-${var.common.env}"
+      services_secondary_range_name = "service-ranges-${var.common.prefix}-${var.common.env}"
+    }
+
+    gateway_api_config {
+      channel = "CHANNEL_STANDARD"
     }
 
     release_channel {
